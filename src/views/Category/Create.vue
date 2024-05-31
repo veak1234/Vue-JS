@@ -13,7 +13,6 @@
           validateOnInput
           :style="{ borderColor: errors && errors['name'] ? 'red' : '' }"
         />
-        <span class="text-danger">{{ errors['name'] }}</span>
         <ErrorMessage name="name" class="text-danger" />
       </div>
       <div class="mb-3">
@@ -28,7 +27,6 @@
           validateOnInput
           :style="{ borderColor: errors && errors['description'] ? 'red' : '' }"
         />
-        <span class="text-danger">{{ errors['description'] }}</span>
         <ErrorMessage name="description" class="text-danger" />
       </div>
       <button type="submit" class="btn btn-primary">Create Category</button>
@@ -37,12 +35,12 @@
 </template>
 
 <script>
-import { Form, Field, defineRule } from "vee-validate";
+import { Form, Field, defineRule, ErrorMessage } from "vee-validate";
 import axios from "axios";
 
 defineRule('required', value => {
   if (!value || !value.length) {
-    return 'This field is required';
+    return ' ';
   }
   return true;
 });
@@ -62,6 +60,7 @@ export default {
   components: {
     Form,
     Field,
+    ErrorMessage,
   },
   data() {
     return {
