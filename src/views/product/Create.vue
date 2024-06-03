@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-4">
     <h1 class="mb-4">Create Product</h1>
-    <Form @submit="createProduct" v-slot="{ errors }">
+    <Form @submit="createProduct" :validation-schema="categorySchemaProduct" v-slot="{ errors }">
       <div class="mb-3">
         <label for="product-name" class="form-label">Name</label>
         <Field
@@ -51,25 +51,26 @@
 </template>
   
 <script>
-import { Form, Field, defineRule, ErrorMessage } from "vee-validate";
+import { Form, Field, ErrorMessage } from "vee-validate";
+import {categorySchemaProduct} from "@/validation/validation-schema";
 import axios from "axios";
 
-defineRule("required", (value) => {
-  if (!value || !value.length) {
-    return " ";
-  }
-  return true;
-});
-defineRule("minLength", (value, [limit]) => {
-  // The field is empty so it should pass
-  if (!value || !value.length) {
-    return true;
-  }
-  if (value.length < limit) {
-    return `This field must be at least ${limit} characters`;
-  }
-  return true;
-});
+// defineRule("required", (value) => {
+//   if (!value || !value.length) {
+//     return " ";
+//   }
+//   return true;
+// });
+// defineRule("minLength", (value, [limit]) => {
+//   // The field is empty so it should pass
+//   if (!value || !value.length) {
+//     return true;
+//   }
+//   if (value.length < limit) {
+//     return `This field must be at least ${limit} characters`;
+//   }
+//   return true;
+// });
 
 export default {
   name: "create-product",
@@ -85,6 +86,7 @@ export default {
         product_id: "",
         description: "",
       },
+      categorySchemaProduct: categorySchemaProduct,
       categories: [],
     };
   },

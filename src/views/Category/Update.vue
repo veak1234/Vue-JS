@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-4">
     <h1 class="mb-4">Edit Category</h1>
-    <Form @submit="UpdateCategory" v-slot="{ errors }">
+    <Form @submit="UpdateCategory" :validation-schema = "categorySchema" v-slot="{ errors } ">
       <div class="mb-3">
         <label for="category-name" class="form-label">Name</label>
         <Field
@@ -37,29 +37,10 @@
 </template>
   
 <script>
-import { Form, Field, defineRule, ErrorMessage } from "vee-validate";
-import { required, min } from '@vee-validate/rules';
+import { Form, Field, ErrorMessage } from "vee-validate";
+// import * as yup from "yup";
+import {categorySchema} from "@/validation/validation-schema";
 import axios from "axios";
-
-defineRule('required', required);
-defineRule('min', min);
-
-// defineRule("required", (value) => {
-//   if (!value || !value.length) {
-//     return " ";
-//   }
-//   return true;
-// });
-// defineRule("minLength", (value, [limit]) => {
-//   // The field is empty so it should pass
-//   if (!value || !value.length) {
-//     return true;
-//   }
-//   if (value.length < limit) {
-//     return `This field must be at least ${limit} characters`;
-//   }
-//   return true;
-// });
 
 export default {
   name: "edit-category",
@@ -75,6 +56,7 @@ export default {
         name: "",
         description: "",
       },
+      categorySchema: categorySchema,
     };
   },
   mounted() {
