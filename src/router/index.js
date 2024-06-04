@@ -18,6 +18,7 @@ import StudentCreate from '@/views/student/Create.vue';
 import EditStudent from '@/views/student/Edit.vue';
 import ShowStudent from '@/views/student/Show.vue';
 import OrderList from '@/views/order/List.vue';
+import userCreate from '@/views/users/user.vue';
 const routes = [
   {
     path: '/',
@@ -121,6 +122,11 @@ const routes = [
     path: '/orders',
     name: 'orders',
     component: OrderList
+  },
+  {
+    path: '/users',
+    name: 'users',
+    component: userCreate
   }
 
 ]

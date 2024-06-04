@@ -23,3 +23,27 @@ export const categorySchemaProduct = yup.object({
         .required("This Field is required")
         .min(5, "This field must be at least 5 characters"),
 });
+
+export const userSchema = yup.object({
+    username: yup
+       .string()
+       .required("This Field is required")
+       .min(3, "This field must be at least 3 characters"),
+    age: yup
+        .number()
+        .required("This Field is required")
+        .min(18),
+    email: yup
+       .string()
+       .required("This Field is required")
+       .min(3, "This field must be at least 3 characters"),
+    password: yup
+       .string()
+       .required("This Field is required")
+       .min(4),
+    confirmPassword: yup
+        .string()
+        .required("This Field is required")
+        .oneOf([yup
+        .ref('password'), null], 'Passwords must match')
+})
