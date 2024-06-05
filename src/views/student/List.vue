@@ -68,17 +68,20 @@
         </tr>
       </tbody>
     </table>
+    {{counter}}
   </div>
 </template>
   
   <script>
 import axios from "axios";
+// import { useCounterStore } from "@/store/index";
 
 export default {
   name: "list-student",
   data() {
     return {
       student: [],
+      // counter: useCounterStore(),
     };
   },
   mounted() {
