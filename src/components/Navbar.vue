@@ -43,7 +43,10 @@
             <router-link class="nav-link" to="/orders">Orders</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/users">User</router-link>
+            <router-link class="nav-link" to="/user">User</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/apis">Api</router-link>
           </li>
           <li class="nav-item">
               <b class="nav-link">{{ store.count }}</b>

@@ -1,4 +1,4 @@
-
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="container mt-4">
     <h1 class="mb-4">Create User</h1>
@@ -76,12 +76,14 @@
       </div>
       <button type="submit" class="btn btn-primary">Create User</button>
     </Form>
+    <!-- <CardUser/> -->
   </div>
 </template>
   
   <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import { userSchema } from "@/validation/validation-schema";
+// import CardUser from "@/views/users/card.vue";
 import axios from "axios";
 
 export default {
@@ -90,6 +92,7 @@ export default {
     Form,
     Field,
     ErrorMessage,
+    // CardUser,
   },
   data() {
     return {

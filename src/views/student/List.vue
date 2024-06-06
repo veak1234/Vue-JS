@@ -74,14 +74,12 @@
   
   <script>
 import axios from "axios";
-// import { useCounterStore } from "@/store/index";
 
 export default {
   name: "list-student",
   data() {
     return {
       student: [],
-      // counter: useCounterStore(),
     };
   },
   mounted() {
@@ -93,7 +91,7 @@ export default {
         const response = await axios.get(
           "http://127.0.0.1:8000/api/student/list"
         );
-        console.log(response);
+        // console.log(response);
         if (response.data.success) {
           this.student = response.data.data;
         }

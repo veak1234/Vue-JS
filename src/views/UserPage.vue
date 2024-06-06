@@ -3,6 +3,8 @@
     <ProfileVue :user="user" @see-more="showMore"></ProfileVue>
     <TableComponentVue :data="data"></TableComponentVue>
   </div>
+  <!-- <CardUser/> -->
+    <!-- <CardUser :user="user"></CardUser> -->
 </template>
 
 <script>
@@ -13,6 +15,7 @@ export default {
   components: {
     ProfileVue,
     TableComponentVue,
+    // CardUser,
   },
   data() {
     return {

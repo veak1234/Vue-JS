@@ -1,6 +1,6 @@
 <template>
+  <NavbarVue />
   <div class="container">
-    <NavbarVue />
     <div class="mb-5">
       <router-view></router-view>
     </div>
